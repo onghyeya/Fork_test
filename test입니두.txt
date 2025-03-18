@@ -1,0 +1,106 @@
+fork 테스트 입니다.
+
+git hub 참 쉽지 않네여
+
+### 1.팀장 역할
+
+<aside>
+
+> **fork_test 생성**
+> 
+- git bash > git init 생성
+- 프로젝트 생성 / Git : 원격 repo 생성(이름은 프로젝트에 맞춰서 생성)
+- git remote add origin 원격 repo url
+- git branch -m main
+- git add .
+- git commit -m “필요 메세지”
+- git push origin main
+</aside>
+
+<aside>
+
+> **branch 생성**
+> 
+- git branch dev
+- git checkout dev
+- git push origin dev
+</aside>
+
+<aside>
+
+> **Git ( Settings )**
+> 
+- default branch > dev branch 로 변경 후 update
+- Branches > add branch ruleset > name : dev-rule >Enfor
+- Target branches > add target > default
+- 기본적으로 두 개가 설정 되어 있음.
+Require approvals : 확인하고 승인 하는 인원 설정
+Require a pull request before merging : 병합 전에 반드시 pull request 하도록 설정
+</aside>
+
+### 2.팀원
+
+<aside>
+
+> **Git ( 최초 작업 )**
+> 
+- 팀장 repository **fork** 하기
+
+![image.png](attachment:1c02d51e-d0ef-402e-af2e-8ac178e8b982:image.png)
+
+- 원본 repository 를 **확인** 할 수 있음.
+
+![image.png](attachment:91d7a735-38b4-4338-86d2-df6413fede73:image.png)
+
+- **clone** 하기 ( forked된 (**내 repo**) repository 내려받기 )
+:  git clone 원격repository url
+- **팀장의 원격 repository 를 “ 내 지역 Repository” 에 연결 해야 함.**
+:  git remote add upstream 팀장 원격 repository url
+</aside>
+
+<aside>
+💡
+
+**Tip**
+
+- **cd 파일이름**  :  작성된 파일의 경로로 설정
+- **cd ..** : 지금 파일의 상위 폴더의 경로로 설정
+- **git remote -v** : 연결된 원격 repository url을 확인할 수 있음
+</aside>
+
+### 3.작업 순서
+
+<aside>
+
+> **Git ( 팀장 & 팀원 공통 )**
+> 
+- **생략하고 바로 Branch 생성과 동시에 이동 가능 
+git checkout -b 브랜치명 ( ==** git branch 브랜치명 + git checkout 브랜치명 )
+    
+    : 기능 branch 명을 만들 땐 최대한 겹치지 않고 봤을 때 
+      바로 알 수 있도록 작성하는 게 좋음.
+    
+- 소스 코드 작업 ( 위치 : **개인 브랜치** )
+
+- git add .
+- git commit -m “작업한 내용 요약”
+- 작업한 내역을 내 원격 저장소에 올려야 함.
+: git push origin 개인브랜치명
+
+- 개인 원격 저장소에 pull request 가 발생( push가 반영이 되지 않았다는 뜻 )
+- pull request 클릭 !! ( 아래 무조건 확인하기 )
+
+![image.png](attachment:e96bb228-e8ce-435e-8f42-f462e1ca279f:image.png)
+
+- 팀장이 반영( merge )을 해주면 아래와 같은 버튼이 활성화 됨.
+
+![image.png](attachment:5b35d40b-75bf-4ba5-91c0-b84c083621cf:image.png)
+
+- push 한 팀원이 branch 삭제( 반영이 되면 기능을 다했기 때문에 삭제하는 것이 일반적 )
+: “ 원격 repo “ 에서만 삭제 되는 것
+
+- git checkout dev : 팀장에게 받아온 dev 에 내용을 받아야 하기 때문에 이동
+- git pull upstream dev : 최신 내용 업데이트
+- git push origin dev : 나의 dev에 업데이트를 시키는 것
+- git branch -d 삭제할 브랜치 명
+</aside>
